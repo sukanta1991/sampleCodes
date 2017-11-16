@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PracticeConsole
+{
+class Program
+    {
+       
+        static void Main(string[] args)
+        {
+          uint inp = Convert.ToUInt32(Console.ReadLine());
+            for (uint i = 0; i<inp; i++)
+            {
+                uint val = Convert.ToUInt32(Console.ReadLine());
+                uint check = 5, counter = 0;
+                while(check <= val)
+                {
+                    counter += (val / check);
+                    check *= 5;
+                }
+                Console.WriteLine(counter);
+            }
+        }
+     }
+}
