@@ -1,0 +1,25 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int testCase = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < testCase; i++)
+            {
+                int nums = Convert.ToInt32(Console.ReadLine().Trim());
+                int count = 0;
+                while (nums > 0) 
+                {
+                    if(nums % 10 == 4)
+                    {
+                        count++;
+                    }
+                    nums /= 10;
+                }
+                Console.WriteLine(count);
+            }
+        }
+    }
+}
