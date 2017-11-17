@@ -1,2 +1,2 @@
 # CodeChef Codes
-This are some of the codes I tried to solve.
+These are some of the codes I tried to solve.
