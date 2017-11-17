@@ -1,0 +1,30 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 0; i < n; i++)
+            {
+                char[] text = Console.ReadLine().Trim().ToCharArray();
+                int holes = 0;
+                for (int j = 0; j < text.Length; j++)
+                {
+                    if(text[j].Equals('A') || text[j].Equals('D') || text[j].Equals('O') || text[j].Equals('P') || text[j].Equals('Q') || text[j].Equals('R'))
+                    {
+                        holes++;
+                    }
+                    else if(text[j].Equals('B'))
+                    {
+                        holes += 2;
+                    }
+                   
+                }
+                Console.WriteLine(holes);
+            }
+           
+        }
+    }
+}
