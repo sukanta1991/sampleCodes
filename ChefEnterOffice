@@ -1,0 +1,19 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int c = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 0; i < c; i++)
+            {
+                int[] nums = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), x => Convert.ToInt32(x));
+                int max, min;
+                max = Math.Max(nums[0], nums[1]);
+                min = Math.Min(nums[0], nums[1]);
+                Console.WriteLine("{0} {1}",max, min+max);
+            }
+        }
+    }
+}
