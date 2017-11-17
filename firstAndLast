@@ -1,0 +1,26 @@
+using System;
+using System.Linq;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int testCase = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < testCase; i++)
+            {
+                string nums = Console.ReadLine().Trim();
+                if(nums.Length == 1)
+                {
+                    Console.WriteLine(nums);
+                }
+                else
+                {
+                    int num1 = Convert.ToInt32(nums.ElementAt(0).ToString());
+                    int num2 = Convert.ToInt32(nums.ElementAt(nums.Length - 1).ToString());
+                    Console.WriteLine(num1 + num2);
+                }
+            }
+        }
+    }
+}
