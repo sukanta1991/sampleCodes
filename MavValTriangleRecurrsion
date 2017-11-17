@@ -1,0 +1,69 @@
+ using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PracticeConsole
+{
+    class Program
+    {
+ static void Main(string[] args)
+        {
+            int testCase = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < testCase; i++)
+            {
+                int rows = Convert.ToInt32(Console.ReadLine());
+                int[][] matrix = new int[rows][];
+                for (int j = 0; j < rows; j++)
+                {
+                    matrix[j] = new int[j + 1];
+                    matrix[j] = Array.ConvertAll(Console.ReadLine().Split(' '), x => Convert.ToInt32(x));
+                }
+                //Random r = new Random();
+                //for (int j = 0; j < rows; j++)
+                //{
+                //    matrix[j] = new int[j+1];
+                //    for (int k = 0; k <= j; k++)
+                //    {
+
+                //        int rInt = r.Next(0, 100);
+                //        matrix[j][k] = rInt;
+                //    }
+
+                //}
+                //foreach (var item in matrix)
+                //{
+                //    foreach (int x in item)
+                //    {
+                //        Console.Write(x.ToString() + " ");
+                //    }
+                //    Console.WriteLine();
+                //}
+                Console.WriteLine(maxSum(matrix,rows,0,0));
+            }
+            return;
+        }
+        public static int maxVals(int a, int b)
+        {
+            if (a < b)
+                return b;
+            else
+                return a;
+        }
+        public static int maxSum(int[][] arr,int rows,int currRow,int currCol)
+        {
+            if(rows == currRow + 1)
+            {
+                return arr[currRow][currCol];
+            }
+            else
+            {
+                int sum = arr[currRow][currCol];
+                sum += maxVals(maxSum(arr, rows, currRow + 1, currCol), maxSum(arr, rows, currRow + 1, currCol + 1));
+                return sum;
+            }
+
+        }
+     }
+        }
