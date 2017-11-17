@@ -1,0 +1,45 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                int n = Convert.ToInt32(Console.ReadLine().Trim());
+                if (n ==0)
+                {
+                    break;
+                }
+                else
+                {
+                    int[] num = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), x => Convert.ToInt32(x));
+                    int[] rev = new int[n];
+                    bool flag = true;
+                    for (int i = 1; i <= n; i++)
+                    {
+                        rev[num[i-1] -1] = i; 
+                    }
+                    for (int k = 0; k < n; k++)
+                    {
+                        if (num[k] != rev[k])
+                        {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (flag)
+                    {
+                        Console.WriteLine("ambiguous");
+                    }
+                    else
+                    {
+                        Console.WriteLine("not ambiguous");
+                    }
+
+                }
+            }
+        }
+    }
+}
