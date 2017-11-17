@@ -1,0 +1,56 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 0; i < n; i++)
+            {
+                string inp = Console.ReadLine();
+                char[] inps = inp.ToCharArray();
+                int aVal = 0, bVal = 0, dots = 0;
+                char privVill='z';
+                for (int j = 0; j < inps.Length; j++)
+                {
+                    if (inps[j].Equals('A'))
+                    {
+                        aVal++;
+                       
+                        if (privVill.Equals('A'))
+                        {
+                            aVal += dots;
+                            dots = 0;
+                        }
+                        else
+                        {
+                            dots = 0;
+                        }
+                        privVill = inps[j];
+                    }
+                    else if (inps[j].Equals('B'))
+                    {
+                        bVal++;
+                       
+                        if (privVill.Equals('B'))
+                        {
+                            bVal += dots;
+                            dots = 0;
+                        }
+                        else
+                        {
+                            dots = 0;
+                        }
+                        privVill = inps[j];
+                    }
+                    else
+                    {
+                        dots++;
+                    }
+                }
+                Console.WriteLine("{0} {1}",aVal,bVal);
+            }
+        }
+    }
+}
