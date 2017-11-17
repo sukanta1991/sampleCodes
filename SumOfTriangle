@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int testCase = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < testCase; i++)
+            {
+                int rows = Convert.ToInt32(Console.ReadLine().Trim());
+                int[][] matrix = new int[rows][];
+                for (int j = 0; j < rows; j++)
+                {
+                    matrix[j] = new int[j + 1];
+                    //matrix[j] = Array.ConvertAll(Console.ReadLine().Split(' '), x =>String.IsNullOrEmpty(x) || String.IsNullOrWhiteSpace(x)?0:Convert.ToInt32(x));
+                    matrix[j] = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), x => Convert.ToInt32(x));
+                }
+                for (int j = rows -2; j >= 0; j--)
+                {
+                    for (int k = 0; k < matrix[j].Length; k++)
+                    {
+                        matrix[j][k] += Math.Max(matrix[j + 1][k], matrix[j + 1][k + 1]);
+                    }
+                }
+                Console.WriteLine(matrix[0][0]);
+            }
+        }
+    }
+}
