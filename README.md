@@ -1,2 +1,2 @@
-# sampleCodes
-this is some of my sample codes done
+# CodeChef Codes
+This are some of the codes I tried to solve.
