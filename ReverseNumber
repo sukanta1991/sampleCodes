@@ -1,0 +1,17 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 0; i < n; i++)
+            {
+                char[] inp = Console.ReadLine().Trim().ToCharArray();
+                Array.Reverse(inp);
+                Console.WriteLine(Convert.ToUInt64( new string(inp)));
+            }
+        }
+    }
+}
