@@ -1,2 +1,2 @@
-# sampleCodes
-this is some of my sample codes done
+# HackerRankCodes
+this is some of my Hacker Rank codes done
