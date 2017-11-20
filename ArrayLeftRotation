@@ -1,0 +1,28 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] tokens_n = Console.ReadLine().Split(' ');
+            int n = Convert.ToInt32(tokens_n[0]);
+            int k = Convert.ToInt32(tokens_n[1]);
+            string[] a_temp = Console.ReadLine().Split(' ');
+            int[] a = Array.ConvertAll(a_temp, Int32.Parse);
+            int d = k % n;
+            Console.Write(a[d]);
+            d++;
+            for (int i = 1; i < n; i++)
+            {
+                if (d==n)
+                {
+                    d = 0;
+                }
+                Console.Write(" {0}",a[d]);
+                d++;
+            }
+            Console.WriteLine();
+        }
+    }
+}
