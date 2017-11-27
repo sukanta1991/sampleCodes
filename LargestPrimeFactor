@@ -1,0 +1,43 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                long n = Convert.ToInt64(Console.ReadLine());
+                //long div = 0;
+                //long s= (long)Math.Sqrt(n);
+                
+                Console.WriteLine(primeFactor(n));
+            }
+        }
+        static long primeFactor(long num)
+        {
+            long i;
+            while(num % 2 == 0)
+            {
+                num = num / 2;
+            }
+            if(num ==1)
+            {
+                return 2;
+            }
+            for ( i = 3; i <= Math.Sqrt(num); i+=2)
+            {
+                while(num % i ==0)
+                {
+                    num /= i;
+                }
+            }
+            if (i > 2 && num > 1)
+                return num;
+            else
+                return i - 2;
+
+        }
+    }
+ }
