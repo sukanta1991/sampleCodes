@@ -1,0 +1,45 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                int n = Convert.ToInt32(Console.ReadLine());
+                int upperL =  999;
+                int lowerL = 100;
+                long max_prod=0;
+                for (int i = upperL; i >= lowerL; i--)
+                {
+                    for (int j = i; j >= lowerL; j--)
+                    {
+                        int prod = i * j;
+                        if ( prod < n && prod < max_prod)
+                            break;
+                        if (prod < n && prod > max_prod && checkPallindrome(prod))
+                        {
+                            max_prod = prod;
+                        }
+                    }
+                   
+                }
+                Console.WriteLine(max_prod);
+            }
+        }
+        static bool checkPallindrome(long n)
+        {
+            bool flag = false;
+            long rev=0,num = n;
+            while(n > 0)
+            {
+                rev = rev * 10 + (n%10);
+                n /= 10;
+            }
+            return num == rev;
+        }
+
+    }
+}
