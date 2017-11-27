@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+class Sukanta
+{
+    static void Main(String[] args)
+    {       
+         int t = Convert.ToInt32(Console.ReadLine());
+         Stack<int> sta = new Stack<int>();
+            Stack<int> stb = new Stack<int>();
+            for (int i = 0; i < t; i++)
+            {
+                int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '), Int32.Parse);
+                switch (arr[0])
+                {
+                    case 1:
+                        sta.Push(arr[1]);
+                        break;
+                    case 2:
+                        popElement(ref sta, ref stb);
+                        break;
+                    case 3:
+                        displayElement( sta,  stb);
+                        break;
+                }
+            }
+    }
+     static void popElement(ref Stack<int> a, ref Stack<int> b)
+        {
+            if(b.Count == 0)
+            {
+                while(a.Count > 0)
+                {
+                    b.Push(a.Pop());
+                }
+            }
+            b.Pop();
+        }
+        static void displayElement( Stack<int> a,  Stack<int> b)
+        {
+            if(b.Count > 0)
+                Console.WriteLine(b.First());
+            else
+                Console.WriteLine(a.Last());
+        } 
+}
