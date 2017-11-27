@@ -1,0 +1,33 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                int n = Convert.ToInt32(Console.ReadLine());
+                int prod = 1;
+                for (int i = 1; i <= n; i++)
+                {
+                    prod = lcm(prod, i);
+                }
+                Console.WriteLine(prod);
+            }
+        }
+        static int gcd(int a,int b)
+        {
+            if (a == b)
+                return a;
+            else if (a > b)
+                return gcd(a - b, b);
+            return gcd(a, b - a);
+        }
+        static int lcm(int a,int b)
+        {
+            return (a * b) / gcd(a, b);
+        }
+    }
+}
