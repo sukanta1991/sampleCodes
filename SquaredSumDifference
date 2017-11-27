@@ -1,0 +1,23 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                int n = Convert.ToInt32(Console.ReadLine());
+                long sum = 0, sqsum = 0;
+                for (int i = 1; i <= n; i++)
+                {
+                    sum += i;
+                    sqsum += (i * i);
+
+                }
+                Console.WriteLine(Math.Abs(sum*sum - sqsum ));
+            }
+        }
+    }
+}
