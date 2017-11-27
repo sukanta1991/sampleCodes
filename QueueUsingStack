@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+class Sukanta {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+         int t = Convert.ToInt32(Console.ReadLine());
+            Stack<int> sta = new Stack<int>();
+            for (int i = 0; i < t; i++)
+            {
+                int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '), Int32.Parse);
+                switch (arr[0])
+                {
+                    case 1:
+                        pushElement(ref sta, arr[1]);
+                        break;
+                    case 2:
+                        sta.Pop();
+                        break;
+                    case 3:
+                        Console.WriteLine(sta.First());
+                        break;
+                }
+            }
+    }
+     static void pushElement(ref Stack<int> x,int value)
+        {
+            Stack<int> temp = new Stack<int>();
+            while(x.Count >0)
+            {
+                temp.Push(x.Pop());
+            }
+            x.Push(value);
+            while(temp.Count > 0)
+            {
+                x.Push(temp.Pop());
+            }
+
+        }
+}
