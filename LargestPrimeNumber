@@ -1,0 +1,46 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                long n = Convert.ToInt64(Console.ReadLine());
+                long tmp = Math.Max((n - 1) / 6, (n + 1) / 6);
+                for (long i = tmp; i > 0; i--)
+                {
+                    long num1, num2;
+                    num1 = (6 * i) + 1;
+                    num2 = (6 * i) - 1;
+                    if( num1 <= n && checkPrime(num1))
+                    {
+                            Console.WriteLine(num1);
+                            break;
+                    }
+                    else if(num2 <= n && checkPrime(num2))
+                    {
+                            Console.WriteLine(num2);
+                            break;
+                    }
+                }               
+            }
+        }
+        static bool checkPrime(long num)
+        {
+            bool prime = true;
+            long checkNum = (long)Math.Sqrt(num);
+            for (int i = 3; i <= checkNum; i+=2)
+            {
+                if(num % i ==0)
+                {
+                    prime = false;
+                    break;
+                }
+            }
+            return prime;
+        }
+    }
+}
