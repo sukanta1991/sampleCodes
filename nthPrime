@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            List<int> req = new List<int>();
+            int max = 0;
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                int n = Convert.ToInt32(Console.ReadLine());
+                req.Add(n);
+                if (n > max)
+                    max = n;
+            }
+            int[] arrPrime = new int[max];
+            for (int i = 0; i < max; i++)
+            {
+                if (i == 0)
+                    arrPrime[0] = 2;
+                else if (i == 1)
+                    arrPrime[1] = 3;
+                else
+                {
+                    for (int j = 1; j <= 10000000; j++)
+                    {
+                        int num1, num2;
+                        num1 = 6 * j - 1;
+                        num2 = 6 * j + 1;
+                        if(checkPrime(num1))
+                        {
+                            arrPrime[i] = num1;
+                            i++;
+                        }
+                        if (i < max && checkPrime(num2))
+                        {
+                            arrPrime[i] = num2;
+                            i++;
+                         }
+                        if(i == max)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            foreach (int item in req)
+            {
+                Console.WriteLine(arrPrime[item -1]);
+            }
+        }
+        static bool checkPrime(long num)
+        {
+            bool prime = true;
+            long checkNum = (long)Math.Sqrt(num);
+            for (int i = 3; i <= checkNum; i += 2)
+            {
+                if (num % i == 0)
+                {
+                    prime = false;
+                    break;
+                }
+            }
+            return prime;
+        }
+    }
+}
