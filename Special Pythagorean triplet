@@ -1,0 +1,105 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                bool flag = false;
+                int n = Convert.ToInt32(Console.ReadLine());
+                for (int a = n/3; a >= 1; a--)
+                {
+                    for (int b = n/2; b >= a+1; b--)
+                    {
+                        int c = n - a - b;
+                        if(a*a + b*b == c*c)
+                        {
+                            flag = true;
+                            Console.WriteLine(a*b*c);
+                            break;
+                        }
+                    }
+                    if (flag)
+                        break;
+                }
+                if(!flag)
+                    Console.WriteLine(-1);
+            }
+        }        
+    }
+}
+
+////This was my second attempt
+//static void Main(string[] args)
+//{
+//    int t = Convert.ToInt32(Console.ReadLine());
+//    for (int a0 = 0; a0 < t; a0++)
+//    {
+//        int n = Convert.ToInt32(Console.ReadLine());
+//        if (n % 2 != 0)
+//        {
+//            Console.WriteLine(-1);
+//        }
+//        else
+//        {
+//            double x = (-1 + Math.Sqrt(1 + 4 * n)) / 2;
+//            if (x > 0 && x % 1 == 0)
+//            {
+//                int a = Convert.ToInt32(x);
+//                int b = (a * a - (n - a) * (n - a)) / (2 * (a - n));
+//                int c = b + 1;
+//                if (a < b && b < c && a * a + b * b == c * c)
+//                    Console.WriteLine(a * b * c);
+//                else
+//                {
+//                    Console.WriteLine(-1);
+//                }
+//            }
+//            else
+//            {
+//                Console.WriteLine(-1);
+//            }
+
+//        }
+//    }
+//}
+/////Backup project that i tried but failed
+//static void Main(string[] args)
+//{
+//    int t = Convert.ToInt32(Console.ReadLine());
+//    for (int a0 = 0; a0 < t; a0++)
+//    {
+//        double n = Convert.ToDouble(Console.ReadLine());
+//        //double n = Convert.ToDouble(a0);
+//        if (n % 2 != 0)
+//            Console.WriteLine(-1);
+//        else
+//        {
+//            double num1 = (-3 + Math.Sqrt(9 - (8 * (1 - n / 2)))) / 4;
+//            double num2 = (-3 - Math.Sqrt(9 - (8 * (1 - n / 2)))) / 4;
+//            if (num1 > 0 && num1 % 1 == 0)
+//            {
+//                UInt64 v, ans;
+//                v = Convert.ToUInt64(num1);
+//                ans = (2 * v + 1) * (2 * v * v + 2 * v) * (2 * v * v + 2 * v + 1);
+//                Console.WriteLine("{0} ----- {1}", a0, ans);
+//            }
+//            else if (num2 > 0 && num2 % 1 == 0)
+//            {
+//                UInt64 v, ans;
+//                v = Convert.ToUInt64(num2);
+//                ans = (2 * v + 1) * (2 * v * v + 2 * v) * (2 * v * v + 2 * v + 1);
+//                Console.WriteLine("{0} ----- {1}", a0, ans);
+//                //Console.WriteLine(ans);
+//            }
+//            else
+//            {
+//                Console.WriteLine(-1);
+//            }
+//        }
+//    }
+//}
