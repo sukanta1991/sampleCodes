@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {           
+            int t = Convert.ToInt32(Console.ReadLine());
+            List<int> req = new List<int>();
+            int max = 0;
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                int n = Convert.ToInt32(Console.ReadLine());
+                req.Add(n);
+                if (n > max)
+                    max = n;
+            }
+            bool[] arrPrime = new bool[max+1];
+            Int64[] sumArr = new Int64[max + 1];
+            for (int i = 2; i < Math.Sqrt(max); i++)
+            {
+                if(!arrPrime[i])
+                {
+                    int x = 0;
+                    for (int j = i*i; j <= max; x++,j=i*i + (x*i))
+                    {
+                        arrPrime[j] = true;
+                    }
+                }
+            }
+            Int64 sums = 0;
+            for (Int64 i = 2; i <=max; i++)
+            {
+                if (!arrPrime[i])
+                {
+                    sums += i;
+                }
+                sumArr[i] = sums;
+            }
+
+            foreach (int item in req)
+            {                
+                Console.WriteLine(sumArr[item]);
+            }
+        }
+    }
+}
