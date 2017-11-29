@@ -1,0 +1,45 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[][] grid = new int[20][];
+            for (int grid_i = 0; grid_i < 20; grid_i++)
+            {
+                string[] grid_temp = Console.ReadLine().Split(' ');
+                grid[grid_i] = Array.ConvertAll(grid_temp, Int32.Parse);
+            }
+            Int64 prod = 0;
+            for (int i = 0; i < 20; i++)
+            {
+                for (int j = 0; j < 20; j++)
+                {
+                    Int64 r, h, dr, dl;
+                    if (j + 3 < 20)
+                    {
+                        r = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3];
+                        prod = Math.Max(prod, r);
+                    }
+                    if (i + 3 < 20)
+                    {
+                        h = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j];
+                        prod = Math.Max(prod, h);
+                    }
+                    if (i + 3 < 20 && j + 3 < 20)
+                    {
+                        dr = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3];
+                        prod = Math.Max(prod, dr);
+                    }
+                    if(i-3 >= 0 && j + 3 < 20)
+                    {
+                        dl = grid[i][j] * grid[i-1][j + 1] * grid[i-2][j + 2] * grid[i-3][j + 3];
+                        prod = Math.Max(prod, dl);
+                    }
+                }               
+            }
+            Console.WriteLine(prod);
+        }
+    }
+}
