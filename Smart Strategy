@@ -1,0 +1,29 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 0; i < t; i++)
+            {
+                int[] n = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), Int32.Parse);
+                int[] D = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), Int32.Parse);
+                Int64 prod = 1;
+                for (int j = 0; j < n[0]; j++)
+                {
+                    if(prod <= 1000000000)
+                    prod *= D[j];
+                }
+                int[] Q = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), Int32.Parse);
+                Console.Write(Q[0]/prod);
+                for (int j = 1; j < Q.Length; j++)
+                {
+                    Console.Write(" {0}",Q[j]/prod);
+                }
+                Console.WriteLine();
+            }
+        }        
+    }
+}
