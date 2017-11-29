@@ -1,0 +1,35 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 0; i < t; i++)
+            {
+                int x = Convert.ToInt32(Console.ReadLine().Trim());
+                int[] arr = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), Int32.Parse);
+                decimal total_prob = (x * (x - 1)) / 2;
+                int max = 0, count = 0;
+                for (int j = 0; j < x-1; j++)
+                {
+                    for (int k = j+1; k < x; k++)
+                    {
+                        int s = arr[j] + arr[k];
+                        if(max == s)
+                        {
+                            count++;
+                        }
+                        else if(max < s)
+                        {
+                            count = 1;
+                            max = s;
+                        }
+                    }
+                }
+                Console.WriteLine((count/total_prob).ToString("0.00000000"));
+            }
+        }        
+    }
+}
