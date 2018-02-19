@@ -1,0 +1,42 @@
+using System;
+
+namespace Sukanta
+{
+    class Program
+    {       
+        public static void Main(string[] args)
+        {
+            int n = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 0; i < n; i++)
+            {
+                int[] arr = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), Convert.ToInt32);
+                int[] completed = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), Convert.ToInt32);
+                int[] tArr = new int[arr[0]];
+                for (int j = 0; j < arr[1]; j++)
+                {
+                    tArr[completed[j]-1] = 1;                    
+                }
+                string mChef = "", helper="";
+                int x = 0;
+                for (int j = 0; j < arr[0]; j++)
+                {
+                    if(tArr[j] != 1)
+                    {
+                        if(x%2==0)
+                        {
+                            mChef = mChef + (j+1).ToString() + " ";
+                            x++;
+                        }
+                        else
+                        {
+                            helper = helper + (j+1).ToString() + " ";
+                            x++;
+                        }
+                    }
+                }
+                Console.WriteLine(mChef);
+                Console.WriteLine(helper);
+            }
+        }
+    }
+}
