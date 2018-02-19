@@ -1,0 +1,21 @@
+ public static void Main(string[] args)
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < n; i++)
+            {
+                string inp = Console.ReadLine().Trim();
+                int result = 0;
+                for (int j = 0; j < inp.Length-3; j++)
+                {
+                    string subStr = inp.Substring(j, 4);
+                    if(subStr.Contains('c') && subStr.Contains('h') && subStr.Contains('e') && subStr.Contains('f'))
+                    {
+                        result++;
+                    }
+                }
+                if(result ==0)
+                    Console.WriteLine("normal");
+                else
+                    Console.WriteLine("lovely {0}",result);
+            }
+        }
