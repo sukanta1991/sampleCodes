@@ -1,0 +1,59 @@
+using System;
+
+namespace Sukanta
+{
+    class Program
+    {
+        static int minVal, maxVal;
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the array seperated by space");
+            int[] arr = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), Convert.ToInt32);
+            maxVal = minVal = arr[0];
+            minMaxFn(arr, 0, arr.Length - 1);
+            Console.WriteLine("MinValue is : {0} , MaxValue in : {1}",minVal,maxVal);
+        }
+        static void minMaxFn(int[] arr, int start, int end)
+        {
+            int mid, mins, maxs;
+            if (start == end)
+            {
+                minVal = Math.Min(minVal, arr[start]);
+                maxVal = Math.Max(maxVal, arr[start]);
+            }
+            //when only 2 items in the array
+            else if (start == end - 1)
+            {
+                if (arr[start] < arr[end])
+                {
+                    minVal = Math.Min(minVal, arr[start]);
+                    maxVal = Math.Max(maxVal, arr[end]);
+                }
+                else
+                {
+                    minVal = Math.Min(minVal, arr[end]);
+                    maxVal = Math.Max(maxVal, arr[start]);
+                }
+            }
+            // for more numbers of element in the array use divide and conquer algorithm
+            // spilt the array to find the min and max values
+            else
+            {
+                mid = (start + end) / 2;
+                //now solve the sub problems
+                mins = maxs = arr[start];
+                minMaxFn(arr, start, mid);
+                minMaxFn(arr, mid + 1, end);
+                if(maxVal <  maxs)
+                {
+                    maxVal = maxs;
+                }
+                if(minVal > mins)
+                {
+                    minVal = mins;
+                }
+            }
+          
+        }
+    }
+}
