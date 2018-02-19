@@ -1,0 +1,23 @@
+using System;
+
+namespace Sukanta
+{
+    class Program
+    {       
+        public static void Main(string[] args)
+        {
+            int[] arr = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), Convert.ToInt32);
+            char[] datas = (arr[0] - arr[1]).ToString().ToCharArray();
+            
+            if(datas[0].Equals('1'))
+            {
+                datas[0] = '2';
+            }
+            else
+            {
+                datas[0] = '1';
+            }
+            Console.WriteLine(new string(datas));
+        }
+    }
+}
