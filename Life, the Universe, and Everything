@@ -1,0 +1,21 @@
+using System;
+namespace Sukanta
+{
+    class Program
+    {
+       public static void Main(string[] args)
+        {
+            while(true)
+            {
+                string inp = Console.ReadLine();
+                if(inp.Equals("42"))
+                {
+                    break;
+                }
+                else
+                    Console.WriteLine(inp);
+            }
+        }
+       
+    }
+}
