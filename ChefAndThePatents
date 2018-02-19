@@ -1,0 +1,33 @@
+public static void Main(string[] args)
+        {
+            Int64 n = Convert.ToInt64(Console.ReadLine());
+            for (Int64 i = 0; i < n; i++)
+            {
+                Int64 N, M, X, K;
+                Int64[] wker = new Int64[2];
+                Int64[] arr = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), Convert.ToInt64);
+                N = arr[0];
+                M = arr[1];
+                X = arr[2];
+                K = arr[3];
+                string wkerDate = Console.ReadLine();
+                wker[0] = wkerDate.Where(x => x == 'E').Count();
+                wker[1] = wkerDate.Where(x => x == 'O').Count();
+                for (Int64 j = 1; j <= M; j++)
+                {
+                    if (N <= 0)
+                        break;
+                    if (X <= wker[j % 2])
+                    {
+                        N -= X;
+                        wker[j % 2] -= X;
+                    }
+                    else if (wker[j % 2] < X)
+                    {
+                        N -= wker[j % 2];
+                        wker[j % 2] -= wker[j % 2];
+                    }
+                }
+                Console.WriteLine(N<=0?"yes":"no");
+            }
+	}
