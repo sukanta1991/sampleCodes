@@ -1,2 +1,2 @@
-# sampleCodes
-this is some of my sample codes done
+# Algorithm Codes
+This is some of the codes that helps me to know algorithm .
