@@ -55,5 +55,22 @@ namespace Sukanta
             }
           
         }
+        
+        //this is the traditional approach
+        //static void traditionalApprocal(int[] arr,int start, int end)
+        //{
+        //    for (int i = start+1; i <= end; i++)
+        //    {
+        //        if(minVal > arr[i])
+        //        {
+        //            minVal = arr[i];
+        //        }
+        //        if(maxVal < arr[i])
+        //        {
+        //            maxVal = arr[i];
+        //        }
+
+        //    }
+        //}
     }
 }
